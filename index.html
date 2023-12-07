@@ -1,0 +1,230 @@
+<!doctype html>
+<html class="scroll-smooth" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Portfolio Arthur</title>
+</head>
+<body class="bg-slate-900 text-white">
+
+<header class="flex justify-between items-center p-4" x-data="{ open: false }">
+    <a href="#">
+        <img alt="Logo" class="h-12 w-auto" src="./public/logo.png">
+    </a>
+    <div class="hidden md:flex gap-16 text-xl">
+        <a href="#propos">A Propos</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#competences">Competences</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <button @click="open = !open" class="md:hidden z-50" x-show="!open">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"></path>
+        </svg>
+    </button>
+    <div @click.away="open = false"
+         class="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex items-center justify-center"
+         x-show="open">
+        <img @click="open = ! open" alt="cross to exit the menu" class="fixed top-0 right-0 w-8 mt-6 mr-4 opacity-70"
+             src="public/cross.svg">
+        <div class="flex flex-col gap-8 text-3xl">
+            <a @click="open = false" href="#propos">A Propos</a>
+            <a @click="open = false" href="#portfolio">Portfolio</a>
+            <a @click="open = false" href="#competences">Competences</a>
+            <a @click="open = false" href="#contact">Contact</a>
+        </div>
+    </div>
+</header>
+
+<div class="mt-16" id="propos">
+    <h1 class="text-center text-5xl">Portfolio - Arthur CUVILLON</h1>
+    <div class="md:grid md:grid-cols-2 md:items-center my-16">
+        <div class="md:p-36 p-8 text-xl">
+            <p>Depuis plus de deux ans au sein de l'IUT de Lens en BUT MMI, ma passion pour le développement web s'est
+                affirmée. Mes
+                compétences ont considérablement progressé, allant du HTML/CSS, PHP, SQL, JavaScript à l'utilisation de
+                technologies avancées telles que Alpine.js, Tailwind CSS, Laravel, Vite.js, Vue.js et autres framework
+                front-end principalement.
+            </p>
+            <p class="mt-6">
+                En tant qu'alternant chez Amphibee, j'ai pu appliquer ces compétences dans des projets concrets,
+                renforçant
+                ainsi ma maîtrise technique. Je suis désormais à l'aise avec des outils tels que GitLab, PhpStorm,
+                Themosis
+                ou Woocomerce.
+            </p>
+        </div>
+        <img alt="photo de moi" class="w-5/6 m-auto md:w-auto" src="./public/arthur.png">
+    </div>
+
+    <div class="">
+        <div class="text-center px-2">
+            <h3 class="text-6xl my-4">FAQ</h3>
+            <p>Afin de plus facilement me connaitre, je vous propose de lire quelques questions que l'on me pose lorsque
+                je parle de mon métier via cette FAQ</p>
+            <p>
+                Si votre question n'apparait pas ici, je vous invite a la poser via le
+                <a class="font-bold underline" href="#contact">
+                    formulaire de contact</a>
+                , elle sera ensuite ajoutée a cette partie
+            </p>
+        </div>
+        <div class="md:px-80 mt-8 mx-4" x-data="Questions('./public/questions.json')" x-init="init">
+            <template x-for="question in datas">
+                <div class="border-b-2 mb-12" x-data="{ open: false }">
+                    <div @click="open = !open; plus = !plus" class="flex justify-between cursor-pointer" x-data="{ plus : true}">
+                        <h4 class="md:text-xl text-sm" x-text="question.question"></h4>
+                        <img alt="plus" class="w-8 pb-2" src="public/plus-circle.svg" x-show="plus">
+                        <img alt="plus" class="w-8 pb-2" src="public/minus-circle.svg" x-show="!plus">
+
+                    </div>
+                    <p class="mb-4 text-gray-400 text-xs md:text-base p-4" x-show="open"
+                       x-text="question.reponse"
+                       x-transition:enter="transition ease-out duration-300 transform"
+                       x-transition:enter-end="opacity-100 translate-y-0"
+                       x-transition:enter-start="opacity-0 -translate-y-2"
+                       x-transition:leave="transition ease-in duration-300 transform"
+                       x-transition:leave-end="opacity-0 -translate-y-2"
+                       x-transition:leave-start="opacity-100 translate-y-0"></p>
+                </div>
+            </template>
+        </div>
+
+    </div>
+</div>
+
+<div class="my-16" id="portfolio" x-data="Projects('./public/data.json')" x-init="init">
+    <div class="mt-16 mb-6 text-center">
+        <h2 class="text-5xl">Mes Projets</h2>
+        <p class="mt-8 text-xl">Voici un apercu des projets que j'ai pu réaliser dans un cadre scolaire mais aussi des
+            projets personnels que j'ai depuis plusieurs années pour certains.</p>
+    </div>
+    <div class="flex md:space-evenly justify-center md:gap-32 mb-8 items-center">
+        <h4 class="text-xl">Selectionner un genre: </h4>
+            <div>
+                <span class="relative top-2 right-0 flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                </span>
+                <select class="p-2 mx-1 border rounded hover:bg-transparent hover:bg-gray-700 focus:outline-none bg-transparent" x-model="genreFilter">
+                    <option value="" class="bg-slate-900">Tous les genres</option>
+                    <template :key="genre" x-for="genre in uniqueGenres">
+                        <option x-text="genre" class="bg-slate-900"></option>
+                    </template>
+                </select>
+            </div>
+
+    </div>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-3 items-center justify-items-center gap-6">
+        <template :key="project.title" x-for="(project, index) in filteredProjects">
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 relative">
+                <img :alt="project.alt" :src="'./public/projects/' + project.img" @click="toggleZoom(index)"
+                     class="rounded-t-lg cursor-pointer">
+                <div class="p-5">
+                    <p class="bg-red-500 inline-flex p-2 mb-2 rounded text-xs" x-text="project.genre"></p>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight" x-text="project.title"></h5>
+                    <p class="mb-3 font-normal text-gray-400" x-text="project.description"></p>
+                    <a :href="project.lien"
+                       class="inline-flex items-center px-3 py-2 text-sm text-center bg-blue-700 rounded-lg hover:bg-blue-800"
+                       target="_blank">
+                        Voir plus
+                        <svg aria-hidden="true" class="rtl:rotate-180 w-3.5 h-3.5 ms-2" fill="none" viewBox="0 0 14 10"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-linecap="round"
+                                  stroke-linejoin="round" stroke-width="2"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div @click="project.zoomed = false" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-80 z-50" x-show="project.zoomed">
+                    <img :alt="project.alt" :src="'./public/projects/' + project.img" class="max-h-full max-w-full">
+                </div>
+            </div>
+        </template>
+    </div>
+    <div class="flex justify-center mt-16">
+        <button :disabled="currentPage === 1" @click="prevPage" class="p-2 mx-1 border rounded hover:bg-gray-200 hover:bg-gray-700 focus:outline-none">
+            Précédent
+        </button>
+
+        <template :key="page" x-for="page in Array.from({ length: totalPages }, (_, index) => index + 1)">
+            <button :class="{ 'bg-blue-500 text-white': currentPage === page }"
+                    @click="currentPage = page"
+                    class="p-2 mx-1 border rounded hover:bg-gray-200 hover:bg-gray-700 focus:outline-none"
+                    x-text="page">
+            </button>
+        </template>
+
+        <button :disabled="currentPage === totalPages" @click="nextPage"
+                class="p-2 mx-1 border rounded hover:bg-gray-200 hover:bg-gray-700 focus:outline-none">
+            Suivant
+        </button>
+    </div>
+</div>
+
+<div id="competences">
+    <h2 class="text-5xl text-center my-16">Ce que j'utilise au quotidien</h2>
+    <div class="flex flex-col md:flex-row items-center justify-evenly mb-16">
+        <h4 class="text-2xl">Languages</h4>
+        <div class="grid grid-cols-4 md:gap-8 gap-2" x-data="Languages('./public/Languages.json')" x-init="init">
+            <template x-for="l in datas">
+                <img :alt="l.alt" :src="'./public/logos/' + l.logo" class="md:w-32 w-16">
+            </template>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row-reverse items-center justify-evenly mb-16">
+        <h4 class="text-2xl">Logiciels</h4>
+        <div class="grid grid-cols-4 md:gap-8 gap-2" x-data="Logiciels('./public/Logiciels.json')" x-init="init">
+            <template x-for="l in datas">
+                <img :alt="l.alt" :src="'./public/logos/' + l.logo" class="md:w-32 w-16">
+            </template>
+        </div>
+    </div>
+</div>
+<div class="mt-32" id="contact">
+    <h2 class="text-5xl text-center mb-16">Convaincus ? Me contacter :</h2>
+    <div class="grid md:grid-cols-2 grid-cols-1 items-center">
+        <div class="md:px-32 px-8 text-center">
+            <a class="text-2xl" href="mailto: arthurcuvillon691@gmail.com">Mail: arthurcuvillon691@gmail.com</a>
+            <h4 class="text-4xl mt-8 mb-4">Mes Réseaux:</h4>
+            <div class="flex justify-evenly">
+                <a href="https://www.flickr.com/photos/194432877@N08/" target="_blank"><img alt="Logo Flickr" class="md:w-16 w-10" src="public/logos\flickr.png"></a>
+                <a href="https://www.instagram.com/arthur_cuvillon/" target="_blank"><img alt="Logo Instagram" class="md:w-16 w-10" src="public/logos\instagram.png"></a>
+                <a href="https://twitter.com/arthur_cuvillon" target="_blank"><img alt="Logo Twitter" class="md:w-16 w-10" src="public/logos/twitter.png"></a>
+                <a href="https://github.com/aserlite" target="_blank"><img alt="Logo Github" class="md:w-16 w-10" src="public/logos\github.png"></a>
+                <a href="https://www.linkedin.com/in/arthur-cuvillon/" target="_blank"><img alt="Logo Linkedin" class="md:w-16 w-10" src="public/logos/linkedin.png"></a>
+            </div>
+        </div>
+
+        <form @submit.prevent="submitForm" class="flex flex-col p-16 gap-8 items-center" id="contact_form" x-data="Form()" x-init="init">
+            <input x-model="formData.nom" @input="Form.clearError('nom')" :class="{ 'border-red-500': errors.nom }" class="rounded-md bg-transparent border-white border-2 w-80 " id="nom" name="nom" placeholder="Nom" required type="text">
+            <div x-show="errors.nom" class="text-red-500 text-xs mt-1">Veuillez entrer votre nom.</div>
+
+            <input x-model="formData.prenom" @input="Form().clearError('prenom')" :class="{ 'border-red-500': errors.prenom }" class="rounded-md bg-transparent border-white border-2 w-80 " id="prenom" name="prenom" placeholder="Prénom" required type="text">
+            <div x-show="errors.prenom" class="text-red-500 text-xs mt-1">Veuillez entrer votre prénom.</div>
+
+            <input x-model="formData.email" @input="clearError('email')" :class="{ 'border-red-500': errors.email }" class="rounded-md bg-transparent border-white border-2 w-80 " id="email" name="email" placeholder="Adresse E-mail" required type="email">
+            <div x-show="errors.email" class="text-red-500 text-xs mt-1">Veuillez entrer une adresse e-mail valide.</div>
+
+            <textarea x-model="formData.message" @input="clearError('message')" :class="{ 'border-red-500': errors.message }" class="rounded-md bg-transparent border-white border-2 w-9/12 " id="message" name="message" placeholder="Message" required rows="4"></textarea>
+            <div x-show="errors.message" class="text-red-500 text-xs mt-1">Veuillez entrer votre message.</div>
+
+            <input class="rounded-full bg-transparent border-white border-2 px-16 py-2" id="submitB" name="submitB" type="submit">
+        </form>
+
+
+
+    </div>
+</div>
+
+<footer>
+
+</footer>
+<script src="/src/main.js" type="module"></script>
+</body>
+</html>

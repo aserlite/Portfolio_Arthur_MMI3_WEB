@@ -1,0 +1,42 @@
+[
+  {
+    "software": "Illustrator",
+    "logo": "illustrator.png",
+    "alt": "logo Illustrator"
+  },
+  {
+    "software": "XD",
+    "logo": "xd.png",
+    "alt": "logo XD"
+  },
+  {
+    "software": "Lightroom",
+    "logo": "lightroom.png",
+    "alt": "logo Lightroom"
+  },
+  {
+    "software": "Photoshop",
+    "logo": "photoshop.png",
+    "alt": "logo Photoshop"
+  },
+  {
+    "software": "Ubuntu",
+    "logo": "ubuntu.png",
+    "alt": "logo Ubuntu"
+  },
+  {
+    "software": "VsCode",
+    "logo": "vscode.png",
+    "alt": "logo VsCode"
+  },
+  {
+    "software": "Github",
+    "logo": "github.png",
+    "alt": "logo Github"
+  },
+  {
+    "software": "Figma",
+    "logo": "figma.png",
+    "alt": "logo Figma"
+  }
+]

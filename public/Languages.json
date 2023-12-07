@@ -1,0 +1,42 @@
+[
+  {
+    "language": "HTML",
+    "logo": "html.png",
+    "alt": "logo HTML"
+  },
+  {
+    "language": "CSS",
+    "logo": "css.png",
+    "alt": "logo CSS"
+  },
+  {
+    "language": "JavaScript",
+    "logo": "js-logo.png",
+    "alt": "logo JS"
+  },
+  {
+    "language": "PHP",
+    "logo": "php.png",
+    "alt": "logo PHP"
+  },
+  {
+    "language": "Laravel",
+    "logo": "laravel.png",
+    "alt": "logo Laravel"
+  },
+  {
+    "language": "SCSS",
+    "logo": "scss.png",
+    "alt": "logo SCSS"
+  },
+  {
+    "language": "WordPress",
+    "logo": "wordpress.png",
+    "alt": "logo WordPress"
+  },
+  {
+    "language": "MySQL",
+    "logo": "mysql.png",
+    "alt": "logo MySQL"
+  }
+]

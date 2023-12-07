@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Quelles sont vos compétences principales en développement web et quelles technologies maîtrisez-vous particulièrement ?",
+    "reponse": "Depuis plus de deux ans au sein de l'IUT de Lens en BUT MMI, j'ai développé des compétences solides en HTML/CSS, PHP, SQL, et JavaScript. En plus des bases, j'ai exploré des technologies avancées comme Alpine.js, Tailwind CSS, Laravel, Vite.js, et Vue.js, ainsi que d'autres frameworks front-end."
+  },
+  {
+    "question": "Comment avez-vous appliqué vos compétences lors de votre expérience en tant qu'alternant chez Amphibee ?",
+    "reponse": "Mon expérience en tant qu'alternant chez Amphibee a été une opportunité précieuse pour mettre en pratique mes compétences de développement web. J'ai travaillé sur des projets concrets qui ont renforcé ma maîtrise technique, utilisant des outils tels que GitLab, PhpStorm, Themosis, et Woocommerce pour aboutir à des solutions efficaces."
+  },
+  {
+    "question": "Comment gérez-vous le contrôle de version dans vos projets de développement web?",
+    "reponse": "J'utilise GitLab comme plateforme de contrôle de version pour mes projets. Cette solution me permet de gérer efficacement les différentes versions de mon code, de collaborer avec d'autres développeurs et de suivre l'évolution du projet. Cela contribue à assurer la cohérence et la qualité du code tout au long du développement."
+  },
+  {
+    "question": "Pouvez-vous expliquer votre expérience avec des technologies spécifiques telles que Alpine.js, Tailwind CSS, et Laravel?",
+    "reponse": "J'ai une solide expérience avec Alpine.js, un framework JavaScript minimaliste mais puissant. Pour le stylisme, j'utilise Tailwind CSS, une approche utility-first qui simplifie le processus de conception. En ce qui concerne le développement back-end, j'ai travaillé avec Laravel, un framework PHP moderne et efficace, pour créer des applications robustes et évolutives."
+  },
+  {
+    "question": "Comment abordez-vous le développement d'applications e-commerce et quels outils utilisez-vous, notamment avec Woocommerce ?",
+    "reponse": "J'ai acquis de l'expérience dans le développement d'applications e-commerce, en particulier avec Woocommerce. J'utilise des outils comme Woocommerce pour créer des solutions e-commerce robustes, tout en assurant une expérience utilisateur optimale. Mon expertise dans ce domaine inclut la personnalisation, l'optimisation des performances et la gestion de boutiques en ligne de manière efficace."
+  }
+]
